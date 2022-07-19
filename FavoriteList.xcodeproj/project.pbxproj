@@ -11,6 +11,7 @@
 		BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACD2886DC0D0079E4DB /* Loadable.swift */; };
 		BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */; };
 		BC3CCAD22886EE2B0079E4DB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */; };
+		BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -24,6 +25,7 @@
 		BC3CCACD2886DC0D0079E4DB /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListsViewController.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				BCB985862886D58F000AE76A /* AppDelegate.swift */,
 				BCB985882886D58F000AE76A /* SceneDelegate.swift */,
 				BCB9858A2886D58F000AE76A /* TopListViewController.swift */,
+				BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */,
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
 				BC3CCAC72886D8080079E4DB /* Coordinator */,
 				BC3CCACC2886DBED0079E4DB /* Supports */,
@@ -171,6 +174,7 @@
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
+				BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */,
 				BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */,
 				BC3CCAD22886EE2B0079E4DB /* Coordinator.swift in Sources */,
 			);

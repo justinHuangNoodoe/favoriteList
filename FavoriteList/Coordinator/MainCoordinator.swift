@@ -10,13 +10,14 @@ import UIKit
 
 enum TabbarItem: Int {
     case top = 0
+    case favorite = 1
     
     var item: UITabBarItem {
         switch self {
         case .top:
             return UITabBarItem(tabBarSystemItem: .topRated, tag: self.rawValue)
-        default:
-            break
+        case .favorite:
+            return UITabBarItem(tabBarSystemItem: .favorites, tag: self.rawValue)
         }
     }
 }
@@ -33,7 +34,8 @@ class MainCoordinator: FLCoordinator {
     func start() {
         let topListVC = TopListViewController.loadFromStoryBoard(name: .main)
         topListVC.tabBarItem = TabbarItem.top.item
-        
-        rootViewController.setViewControllers([topListVC], animated: true)
+        let favoriteListVC = FavoriteListsViewController.loadFromStoryBoard(name: .main)
+        favoriteListVC.tabBarItem = TabbarItem.favorite.item
+        rootViewController.setViewControllers([topListVC, favoriteListVC], animated: true)
     }
 }

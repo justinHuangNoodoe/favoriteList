@@ -20,7 +20,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="-105"/>
+            <point key="canvasLocation" x="-1000" y="-163"/>
+        </scene>
+        <!--Favorite Lists View Controller-->
+        <scene sceneID="z6Q-Hg-2Tz">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteListsViewController" id="i63-Ig-Ora" customClass="FavoriteListsViewController" customModule="FavoriteList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ru-Bd-sYP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="b5d-Tj-1qY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noQ-cc-isV" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-336" y="-163"/>
         </scene>
     </scenes>
 </document>
