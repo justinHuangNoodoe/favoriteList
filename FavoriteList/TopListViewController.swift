@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol TopListVCDelegate: AnyObject {}
 
+class TopListViewController: UIViewController, Loadable {
+    
+    weak var delegate: TopListVCDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
