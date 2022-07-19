@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACD2886DC0D0079E4DB /* Loadable.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC3CCACD2886DC0D0079E4DB /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC3CCACC2886DBED0079E4DB /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				BC3CCACD2886DC0D0079E4DB /* Loadable.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
 		BCB9857A2886D58F000AE76A = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 				BCB985882886D58F000AE76A /* SceneDelegate.swift */,
 				BCB9858A2886D58F000AE76A /* ViewController.swift */,
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
+				BC3CCACC2886DBED0079E4DB /* Supports */,
 				BCB9858F2886D593000AE76A /* Assets.xcassets */,
 				BCB985912886D593000AE76A /* LaunchScreen.storyboard */,
 				BCB985942886D593000AE76A /* Info.plist */,
@@ -141,6 +152,7 @@
 				BCB9858B2886D58F000AE76A /* ViewController.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
+				BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
