@@ -12,6 +12,8 @@
 		BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */; };
 		BC3CCAD22886EE2B0079E4DB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */; };
 		BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */; };
+		BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */; };
+		BC3CCADB288786130079E4DB /* ListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -26,6 +28,8 @@
 		BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListsViewController.swift; sourceTree = "<group>"; };
+		BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
+		BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemTableViewCell.xib; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				BCB985862886D58F000AE76A /* AppDelegate.swift */,
 				BCB985882886D58F000AE76A /* SceneDelegate.swift */,
 				BCB9858A2886D58F000AE76A /* TopListViewController.swift */,
+				BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */,
+				BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */,
 				BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */,
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
 				BC3CCAC72886D8080079E4DB /* Coordinator */,
@@ -156,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3CCADB288786130079E4DB /* ListItemTableViewCell.xib in Resources */,
 				BCB985932886D593000AE76A /* LaunchScreen.storyboard in Resources */,
 				BCB985902886D593000AE76A /* Assets.xcassets in Resources */,
 				BCB9858E2886D58F000AE76A /* Main.storyboard in Resources */,
@@ -169,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */,
 				BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */,
 				BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
