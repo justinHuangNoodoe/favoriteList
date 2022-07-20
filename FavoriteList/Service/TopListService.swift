@@ -14,8 +14,8 @@ class TopListService {
     static func getTopMangaList(type: MangaType?, filter: TopListItemFilter?, page: Int, limit: Int, completionHander: @escaping GetTopMangaListHandler) {
         
         var queryDic: [String: String] = [:]
-        queryDic["type"] = type?.rawValue
-        queryDic["filter"] = filter?.rawValue
+        queryDic["type"] = type?.text
+        queryDic["filter"] = filter?.text
         queryDic["page"] = page.description
         queryDic["limit"] = limit.description
         
@@ -28,21 +28,29 @@ class TopListService {
     }
 }
 
-enum MangaType: String {
-    case manga
-    case novel
-    case lightnovel
-    case oneshot
-    case doujin
-    case manhwa
-    case manhua
+enum MangaType: Int, CaseIterable {
+    case manga = 0
+    case novel = 1
+    case lightnovel = 2
+    case oneshot = 3
+    case doujin = 4
+    case manhwa = 5
+    case manhua = 6
+    
+    var text: String {
+        return "\(self)"
+    }
 }
 
-enum TopListItemFilter: String {
-    case publishing
-    case upcoming
-    case bypopularity
-    case favorite
+enum TopListItemFilter: Int, CaseIterable {
+    case publishing = 0
+    case upcoming = 1
+    case bypopularity = 2
+    case favorite = 3
+    
+    var text: String {
+        return "\(self)"
+    }
 }
 
 struct TopList: Codable {
