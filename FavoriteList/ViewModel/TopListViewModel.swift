@@ -14,27 +14,55 @@ protocol TopListVMDelegate: AnyObject {
 
 class TopListViewModel {
     
-    weak var delegate: TopListVMDelegate?
-    
-    var topList: [TopListItem]
+    private weak var delegate: TopListVMDelegate?
+    private(set) var topList: [TopListItem]
+    private var isLoadingList: Bool
+    private var currentPage: Int
+    private var hasNextPage: Bool
+    var mangaType: MangaType?
+    var filter: TopListItemFilter?
     
     init(delegate: TopListVMDelegate?) {
         self.delegate = delegate
         topList = []
+        currentPage = 0
+        isLoadingList = false
+        hasNextPage = false
     }
     
-    func getTopMangaList(type: MangaType? = nil, filter: TopListItemFilter? = nil) {
-        TopListService.getTopMangaList(type: type, filter: filter, page: 10, limit: 10) { [weak self] result in
+    func getTopMangaList(page: Int) {
+        guard !isLoadingList else { return }
+        isLoadingList = true
+        TopListService.getTopMangaList(type: mangaType, filter: filter, page: page, limit: 20) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.isLoadingList = false
                 switch result {
                 case .success(let list):
-                    self.topList = list.data
-                    self.delegate?.updateTopMangaListSucess(self.topList)
+                    if page > self.currentPage {
+                        self.topList.append(contentsOf: list.data)
+                    } else {
+                        self.topList = list.data
+                    }
+                    
+                    if
+                        let currentPage = list.pagination.currentPage,
+                        let hasNextPage = list.pagination.hasNextPage {
+                        self.currentPage = currentPage
+                        self.hasNextPage = hasNextPage
+                    }
+                    self.delegate?.updateTopMangaListSucess()
                 case .failure(let error):
                     self.delegate?.updateTopMangaListFailue(error)
                 }
             }
+        }
+    }
+    
+    func getNexPageMangaListIfNeed() {
+        if hasNextPage {
+            let nextPage = currentPage + 1
+            getTopMangaList(page: nextPage)
         }
     }
     

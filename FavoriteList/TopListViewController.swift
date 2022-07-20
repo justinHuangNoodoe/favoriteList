@@ -21,7 +21,7 @@ class TopListViewController: UIViewController, Loadable {
         super.viewDidLoad()
         setupUI()
         viewModel = TopListViewModel(delegate: self)
-        viewModel?.getTopMangaList(type: .manga, filter: nil)
+        viewModel?.getTopMangaList(page: 0)
     }
     
     private func setupUI() {
@@ -52,6 +52,13 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let didScrollHeight = scrollView.contentOffset.y + scrollView.visibleSize.height
+        if didScrollHeight > scrollView.contentSize.height {
+            viewModel?.getNexPageMangaListIfNeed()
+        }
     }
 }
 
