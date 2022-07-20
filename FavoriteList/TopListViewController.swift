@@ -42,7 +42,7 @@ class TopListViewController: UIViewController, Loadable {
         }
         filterSeqmentedControl.removeAllSegments()
         filterSeqmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        TopListItemFilter.allCases.forEach { filter in
+        MangaFilter.allCases.forEach { filter in
             filterSeqmentedControl.insertSegment(withTitle: filter.text, at: filter.rawValue, animated: false)
         }
         typeSegmentedControl.selectedSegmentIndex = -1
@@ -65,7 +65,7 @@ class TopListViewController: UIViewController, Loadable {
     
     @IBAction func filterSeqmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
-        viewModel?.filter = TopListItemFilter(rawValue: index)
+        viewModel?.filter = MangaFilter(rawValue: index)
         debounce?.execute { [weak self] in
             self?.viewModel?.reset()
         }

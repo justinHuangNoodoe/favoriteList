@@ -20,7 +20,7 @@ class TopListViewModel {
     private var currentPage: Int
     private var hasNextPage: Bool
     var mangaType: MangaType?
-    var filter: TopListItemFilter?
+    var filter: MangaFilter?
     
     init(delegate: TopListVMDelegate?) {
         self.delegate = delegate

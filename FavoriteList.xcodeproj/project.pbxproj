@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC287FAF288837C1003DCA12 /* Debounce.swift */; };
+		BC287FB32888481F003DCA12 /* TopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC287FB22888481F003DCA12 /* TopList.swift */; };
 		BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAC82886D8200079E4DB /* AppCoordinator.swift */; };
 		BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACD2886DC0D0079E4DB /* Loadable.swift */; };
 		BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		BC287FAF288837C1003DCA12 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
+		BC287FB22888481F003DCA12 /* TopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopList.swift; sourceTree = "<group>"; };
 		BC3CCAC82886D8200079E4DB /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC3CCACD2886DC0D0079E4DB /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC287FB1288847FE003DCA12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC287FB22888481F003DCA12 /* TopList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BC3CCAC72886D8080079E4DB /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 				BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */,
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
 				BC3CCAE0288799610079E4DB /* Service */,
+				BC287FB1288847FE003DCA12 /* Model */,
 				BC3CCACC2886DBED0079E4DB /* Supports */,
 				BC3CCADC28878AAB0079E4DB /* Extension */,
 				BCB9858F2886D593000AE76A /* Assets.xcassets */,
@@ -244,6 +255,7 @@
 				BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */,
 				BC3CCAEC2887E6540079E4DB /* ExtsUIImageView.swift in Sources */,
 				BC3CCAE428879AC40079E4DB /* TopListService.swift in Sources */,
+				BC287FB32888481F003DCA12 /* TopList.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
