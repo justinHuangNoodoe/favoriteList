@@ -17,6 +17,10 @@
 		BC3CCADB288786130079E4DB /* ListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */; };
 		BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */; };
 		BC3CCAE2288799FF0079E4DB /* RESTfulService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE1288799FF0079E4DB /* RESTfulService.swift */; };
+		BC3CCAE428879AC40079E4DB /* TopListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE328879AC40079E4DB /* TopListService.swift */; };
+		BC3CCAE62887C5450079E4DB /* RESTFulConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE52887C5450079E4DB /* RESTFulConstant.swift */; };
+		BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE72887CB100079E4DB /* URLExts.swift */; };
+		BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -36,6 +40,10 @@
 		BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemTableViewCell.xib; sourceTree = "<group>"; };
 		BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExts.swift; sourceTree = "<group>"; };
 		BC3CCAE1288799FF0079E4DB /* RESTfulService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTfulService.swift; sourceTree = "<group>"; };
+		BC3CCAE328879AC40079E4DB /* TopListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListService.swift; sourceTree = "<group>"; };
+		BC3CCAE52887C5450079E4DB /* RESTFulConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTFulConstant.swift; sourceTree = "<group>"; };
+		BC3CCAE72887CB100079E4DB /* URLExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExts.swift; sourceTree = "<group>"; };
+		BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExts.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */,
+				BC3CCAE72887CB100079E4DB /* URLExts.swift */,
+				BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -94,7 +104,9 @@
 		BC3CCAE0288799610079E4DB /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BC3CCAE52887C5450079E4DB /* RESTFulConstant.swift */,
 				BC3CCAE1288799FF0079E4DB /* RESTfulService.swift */,
+				BC3CCAE328879AC40079E4DB /* TopListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -210,11 +222,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */,
+				BC3CCAE62887C5450079E4DB /* RESTFulConstant.swift in Sources */,
 				BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */,
 				BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */,
 				BC3CCAD7288782F90079E4DB /* TopListViewModel.swift in Sources */,
 				BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */,
+				BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */,
+				BC3CCAE428879AC40079E4DB /* TopListService.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
+				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
 				BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */,

@@ -11,6 +11,10 @@ enum RESTfulError: Error, LocalizedError {
     case nilData
 }
 
+enum RESTfulServiceError: Error, LocalizedError {
+    case invalidURL
+}
+
 enum HTTPStatusCode: Int {
     case unKnownCode = -1
     case noStatusCode = 0
