@@ -28,6 +28,8 @@
 		BCB9858E2886D58F000AE76A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCB9858C2886D58F000AE76A /* Main.storyboard */; };
 		BCB985902886D593000AE76A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB9858F2886D593000AE76A /* Assets.xcassets */; };
 		BCB985932886D593000AE76A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCB985912886D593000AE76A /* LaunchScreen.storyboard */; };
+		BCBB898C2887FD1B00B7397B /* StringExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB898B2887FD1B00B7397B /* StringExts.swift */; };
+		BCBB898E2887FD5B00B7397B /* DateExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB898D2887FD5B00B7397B /* DateExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		BCB9858F2886D593000AE76A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCB985922886D593000AE76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCB985942886D593000AE76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCBB898B2887FD1B00B7397B /* StringExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExts.swift; sourceTree = "<group>"; };
+		BCBB898D2887FD5B00B7397B /* DateExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */,
 				BC3CCAE72887CB100079E4DB /* URLExts.swift */,
 				BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */,
+				BCBB898B2887FD1B00B7397B /* StringExts.swift */,
+				BCBB898D2887FD5B00B7397B /* DateExts.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			files = (
 				BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */,
 				BC3CCAE62887C5450079E4DB /* RESTFulConstant.swift in Sources */,
+				BCBB898C2887FD1B00B7397B /* StringExts.swift in Sources */,
 				BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */,
 				BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */,
+				BCBB898E2887FD5B00B7397B /* DateExts.swift in Sources */,
 				BC3CCAD7288782F90079E4DB /* TopListViewModel.swift in Sources */,
 				BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */,
 				BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */,

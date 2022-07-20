@@ -45,8 +45,8 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.titleLabel.text = item?.title
         cell.rankLabel.text = item?.rank?.description
-        cell.startDateLabel.text = item?.published?.from
-        cell.endDateLabel.text = item?.aired?.to
+        cell.startDateLabel.text = item?.published?.from?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
+        cell.endDateLabel.text = item?.aired?.to?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
         return cell
     }
     
