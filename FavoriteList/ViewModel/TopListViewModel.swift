@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TopListVMDelegate: AnyObject {
-    func updateTopMangaListSucess(_ list: [TopListItem])
+    func updateTopMangaListSucess()
     func updateTopMangaListFailue(_ error: Error)
 }
 

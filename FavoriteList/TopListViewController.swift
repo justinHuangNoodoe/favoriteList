@@ -56,7 +56,7 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TopListViewController: TopListVMDelegate {
-    func updateTopMangaListSucess(_ list: [TopListItem]) {
+    func updateTopMangaListSucess() {
         listTableView.reloadData()
     }
     
