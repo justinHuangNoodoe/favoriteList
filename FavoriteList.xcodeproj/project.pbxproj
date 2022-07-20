@@ -89,6 +89,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BC3CCAE0288799610079E4DB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BCB9857A2886D58F000AE76A = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +117,14 @@
 			children = (
 				BCB985862886D58F000AE76A /* AppDelegate.swift */,
 				BCB985882886D58F000AE76A /* SceneDelegate.swift */,
+				BC3CCAC72886D8080079E4DB /* Coordinator */,
 				BC3CCAD5288782DF0079E4DB /* ViewModel */,
 				BCB9858A2886D58F000AE76A /* TopListViewController.swift */,
 				BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */,
 				BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */,
 				BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */,
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
-				BC3CCAC72886D8080079E4DB /* Coordinator */,
+				BC3CCAE0288799610079E4DB /* Service */,
 				BC3CCACC2886DBED0079E4DB /* Supports */,
 				BC3CCADC28878AAB0079E4DB /* Extension */,
 				BCB9858F2886D593000AE76A /* Assets.xcassets */,
