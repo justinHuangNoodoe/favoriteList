@@ -26,6 +26,22 @@ class TopListService {
         
         RESTfulService.asyncRESTfulService(.get, targetType: TopList.self, url: url, body: nil, header: nil, completion: completionHander)
     }
+    
+    static func getTopAnimeList(type: AnimeType?, filter: AnimeFilter?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
+        
+        var queryDic: [String: String] = [:]
+        queryDic["type"] = type?.text
+        queryDic["filter"] = filter?.text
+        queryDic["page"] = page.description
+        queryDic["limit"] = limit.description
+        
+        guard let url = getTopMangaListApi.appendCustomQuery(queryDic) else {
+            completionHander(.failure(RESTfulServiceError.invalidURL))
+            return
+        }
+        
+        RESTfulService.asyncRESTfulService(.get, targetType: TopList.self, url: url, body: nil, header: nil, completion: completionHander)
+    }
 }
 
 enum MangaType: Int, Segmentedable {
