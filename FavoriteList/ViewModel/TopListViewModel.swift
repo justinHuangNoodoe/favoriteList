@@ -30,6 +30,13 @@ class TopListViewModel {
         hasNextPage = false
     }
     
+    func reset() {
+        topList = []
+        currentPage = 0
+        hasNextPage = false
+        getTopMangaList(page: 0)
+    }
+    
     func getTopMangaList(page: Int) {
         guard !isLoadingList else { return }
         isLoadingList = true
