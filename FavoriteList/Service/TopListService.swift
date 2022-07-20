@@ -7,11 +7,11 @@
 
 import Foundation
 
-typealias GetTopMangaListHandler = ResfulHandler<TopList>
+typealias GetTopListHandler = ResfulHandler<TopList>
 
 class TopListService {
     private init() {}
-    static func getTopMangaList(type: MangaType?, filter: TopListItemFilter?, page: Int, limit: Int, completionHander: @escaping GetTopMangaListHandler) {
+    static func getTopMangaList(type: MangaType?, filter: MangaFilter?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
         
         var queryDic: [String: String] = [:]
         queryDic["type"] = type?.text
@@ -28,7 +28,7 @@ class TopListService {
     }
 }
 
-enum MangaType: Int, CaseIterable {
+enum MangaType: Int, Segmentedable {
     case manga = 0
     case novel = 1
     case lightnovel = 2
@@ -40,9 +40,13 @@ enum MangaType: Int, CaseIterable {
     var text: String {
         return "\(self)"
     }
+    
+    var index: Int {
+        return self.rawValue
+    }
 }
 
-enum TopListItemFilter: Int, CaseIterable {
+enum MangaFilter: Int, Segmentedable {
     case publishing = 0
     case upcoming = 1
     case bypopularity = 2
@@ -51,4 +55,45 @@ enum TopListItemFilter: Int, CaseIterable {
     var text: String {
         return "\(self)"
     }
+    
+    var index: Int {
+        return self.rawValue
+    }
+}
+
+enum AnimeType: Int, Segmentedable {
+    case tv = 0
+    case movie = 1
+    case ova = 2
+    case special = 3
+    case ona = 4
+    case music = 5
+    
+    var text: String {
+        return "\(self)"
+    }
+    
+    var index: Int {
+        return self.rawValue
+    }
+}
+
+enum AnimeFilter: Int, Segmentedable {
+    case airing = 0
+    case upcoming = 1
+    case bypopularity = 2
+    case favorite = 3
+    
+    var text: String {
+        return "\(self)"
+    }
+    
+    var index: Int {
+        return self.rawValue
+    }
+}
+
+protocol Segmentedable: CaseIterable {
+    var text: String { get }
+    var index: Int { get }
 }
