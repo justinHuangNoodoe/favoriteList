@@ -11,7 +11,8 @@ protocol TopListVCDelegate: AnyObject {}
 
 class TopListViewController: UIViewController, Loadable {
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var filterSeqmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchFilterSeqmentedControl: UISegmentedControl!
     @IBOutlet weak var listTableView: UITableView!
     
     @IBOutlet weak var noResultView: UIView!
@@ -22,31 +23,48 @@ class TopListViewController: UIViewController, Loadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         debounce = Debounce(interval: 0.5)
-        viewModel = TopListViewModel(delegate: self)
-        viewModel?.getTopMangaList(page: 0)
+        viewModel = TopListViewModel(injection: .manga, delegate: self)
+        setupUI()
+        viewModel?.getTopList(page: 0)
+    }
+    
+    private func reset(injection: TopListInjection) {
+        viewModel?.injection = injection
+        setupUI()
     }
     
     private func setupUI() {
         listTableView.register(ListItemTableViewCell.loadNib(), forCellReuseIdentifier: ListItemTableViewCell.identifier)
         listTableView.delegate = self
         listTableView.dataSource = self
+        setupSegmentedControl()
+    }
+    
+    private func setupSegmentedControl() {
         let attributes = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 9)
         ]
+        
         typeSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
         typeSegmentedControl.removeAllSegments()
-        MangaType.allCases.forEach { type in
-            typeSegmentedControl.insertSegment(withTitle: type.text, at: type.rawValue, animated: false)
+        TopListInjection.allCases.forEach { type in
+            typeSegmentedControl.insertSegment(withTitle: type.text, at: type.index, animated: false)
         }
-        filterSeqmentedControl.removeAllSegments()
-        filterSeqmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        MangaFilter.allCases.forEach { filter in
-            filterSeqmentedControl.insertSegment(withTitle: filter.text, at: filter.rawValue, animated: false)
+        
+        searchTypeSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
+        searchTypeSegmentedControl.removeAllSegments()
+        viewModel?.injection.searchTypeElements.forEach { type in
+            searchTypeSegmentedControl.insertSegment(withTitle: type.text, at: type.index, animated: false)
         }
-        typeSegmentedControl.selectedSegmentIndex = -1
-        filterSeqmentedControl.selectedSegmentIndex = -1
+        searchFilterSeqmentedControl.removeAllSegments()
+        searchFilterSeqmentedControl.setTitleTextAttributes(attributes, for: .normal)
+        viewModel?.injection.searchFilterElements.forEach { filter in
+            searchFilterSeqmentedControl.insertSegment(withTitle: filter.text, at: filter.index, animated: false)
+        }
+        typeSegmentedControl.selectedSegmentIndex = viewModel?.injection.index ?? 0
+        searchTypeSegmentedControl.selectedSegmentIndex = -1
+        searchFilterSeqmentedControl.selectedSegmentIndex = -1
     }
     
     func showNoResult(_ shown: Bool) {
@@ -57,16 +75,24 @@ class TopListViewController: UIViewController, Loadable {
     
     @IBAction func typeSegmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
-        viewModel?.mangaType = MangaType(rawValue: index)
+        let injection = TopListInjection(rawValue: index) ?? .manga
         debounce?.execute { [weak self] in
+            self?.reset(injection: injection)
+        }
+    }
+    
+    @IBAction func searchTypeSegmentedDidChanged(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        debounce?.execute { [weak self] in
+            self?.viewModel?.setSearchType(index)
             self?.viewModel?.reset()
         }
     }
     
-    @IBAction func filterSeqmentedDidChanged(_ sender: UISegmentedControl) {
+    @IBAction func searchFilterSeqmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
-        viewModel?.filter = MangaFilter(rawValue: index)
         debounce?.execute { [weak self] in
+            self?.viewModel?.setSearchFilter(index)
             self?.viewModel?.reset()
         }
     }
@@ -100,17 +126,17 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let didScrollHeight = scrollView.contentOffset.y + scrollView.visibleSize.height
         if didScrollHeight > scrollView.contentSize.height {
-            viewModel?.getNexPageMangaListIfNeed()
+            viewModel?.getNexPageListIfNeed()
         }
     }
 }
 
 extension TopListViewController: TopListVMDelegate {
-    func updateTopMangaListSucess() {
+    func updateTopListSucess() {
         listTableView.reloadData()
     }
     
-    func updateTopMangaListFailue(_ error: Error) {
+    func updateTopListFailue(_ error: Error) {
         print(error)
     }
 }

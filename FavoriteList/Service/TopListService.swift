@@ -11,7 +11,7 @@ typealias GetTopListHandler = ResfulHandler<TopList>
 
 class TopListService {
     private init() {}
-    static func getTopMangaList(type: MangaType?, filter: MangaFilter?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
+    static func getTopMangaList(type: Elementable?, filter: Elementable?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
         
         var queryDic: [String: String] = [:]
         queryDic["type"] = type?.text
@@ -27,7 +27,7 @@ class TopListService {
         RESTfulService.asyncRESTfulService(.get, targetType: TopList.self, url: url, body: nil, header: nil, completion: completionHander)
     }
     
-    static func getTopAnimeList(type: AnimeType?, filter: AnimeFilter?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
+    static func getTopAnimeList(type: Elementable?, filter: Elementable?, page: Int, limit: Int, completionHander: @escaping GetTopListHandler) {
         
         var queryDic: [String: String] = [:]
         queryDic["type"] = type?.text
@@ -35,7 +35,7 @@ class TopListService {
         queryDic["page"] = page.description
         queryDic["limit"] = limit.description
         
-        guard let url = getTopMangaListApi.appendCustomQuery(queryDic) else {
+        guard let url = getTopAnimeListApi.appendCustomQuery(queryDic) else {
             completionHander(.failure(RESTfulServiceError.invalidURL))
             return
         }
@@ -44,7 +44,7 @@ class TopListService {
     }
 }
 
-enum MangaType: Int, Segmentedable {
+enum MangaType: Int, CaseIterable, Elementable {
     case manga = 0
     case novel = 1
     case lightnovel = 2
@@ -62,7 +62,7 @@ enum MangaType: Int, Segmentedable {
     }
 }
 
-enum MangaFilter: Int, Segmentedable {
+enum MangaFilter: Int, CaseIterable, Elementable {
     case publishing = 0
     case upcoming = 1
     case bypopularity = 2
@@ -77,7 +77,7 @@ enum MangaFilter: Int, Segmentedable {
     }
 }
 
-enum AnimeType: Int, Segmentedable {
+enum AnimeType: Int, CaseIterable, Elementable {
     case tv = 0
     case movie = 1
     case ova = 2
@@ -94,7 +94,7 @@ enum AnimeType: Int, Segmentedable {
     }
 }
 
-enum AnimeFilter: Int, Segmentedable {
+enum AnimeFilter: Int, CaseIterable, Elementable {
     case airing = 0
     case upcoming = 1
     case bypopularity = 2
@@ -109,7 +109,7 @@ enum AnimeFilter: Int, Segmentedable {
     }
 }
 
-protocol Segmentedable: CaseIterable {
+protocol Elementable {
     var text: String { get }
     var index: Int { get }
 }
