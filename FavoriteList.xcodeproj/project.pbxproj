@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC287FAF288837C1003DCA12 /* Debounce.swift */; };
 		BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAC82886D8200079E4DB /* AppCoordinator.swift */; };
 		BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACD2886DC0D0079E4DB /* Loadable.swift */; };
 		BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC287FAF288837C1003DCA12 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		BC3CCAC82886D8200079E4DB /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC3CCACD2886DC0D0079E4DB /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		BC3CCACF2886EA350079E4DB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				BC3CCACD2886DC0D0079E4DB /* Loadable.swift */,
 				BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */,
+				BC287FAF288837C1003DCA12 /* Debounce.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
+				BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
 				BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */,
 				BC3CCAE2288799FF0079E4DB /* RESTfulService.swift in Sources */,
