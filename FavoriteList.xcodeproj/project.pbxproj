@@ -14,6 +14,7 @@
 		BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */; };
 		BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */; };
 		BC3CCADB288786130079E4DB /* ListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */; };
+		BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -30,6 +31,7 @@
 		BC3CCAD3288706DA0079E4DB /* FavoriteListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListsViewController.swift; sourceTree = "<group>"; };
 		BC3CCAD8288786130079E4DB /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		BC3CCAD9288786130079E4DB /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemTableViewCell.xib; sourceTree = "<group>"; };
+		BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExts.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Supports;
 			sourceTree = "<group>";
 		};
+		BC3CCADC28878AAB0079E4DB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		BCB9857A2886D58F000AE76A = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 				BCB9858C2886D58F000AE76A /* Main.storyboard */,
 				BC3CCAC72886D8080079E4DB /* Coordinator */,
 				BC3CCACC2886DBED0079E4DB /* Supports */,
+				BC3CCADC28878AAB0079E4DB /* Extension */,
 				BCB9858F2886D593000AE76A /* Assets.xcassets */,
 				BCB985912886D593000AE76A /* LaunchScreen.storyboard */,
 				BCB985942886D593000AE76A /* Info.plist */,
@@ -179,6 +190,7 @@
 				BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */,
 				BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */,
 				BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */,
+				BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
