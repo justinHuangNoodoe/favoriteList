@@ -21,6 +21,7 @@
 		BC3CCAE62887C5450079E4DB /* RESTFulConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE52887C5450079E4DB /* RESTFulConstant.swift */; };
 		BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE72887CB100079E4DB /* URLExts.swift */; };
 		BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */; };
+		BC3CCAEC2887E6540079E4DB /* ExtsUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAEB2887E6540079E4DB /* ExtsUIImageView.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -44,6 +45,7 @@
 		BC3CCAE52887C5450079E4DB /* RESTFulConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTFulConstant.swift; sourceTree = "<group>"; };
 		BC3CCAE72887CB100079E4DB /* URLExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExts.swift; sourceTree = "<group>"; };
 		BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExts.swift; sourceTree = "<group>"; };
+		BC3CCAEB2887E6540079E4DB /* ExtsUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtsUIImageView.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		BC3CCADC28878AAB0079E4DB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BC3CCAEB2887E6540079E4DB /* ExtsUIImageView.swift */,
 				BC3CCADD28878ADF0079E4DB /* UITableViewExts.swift */,
 				BC3CCAE72887CB100079E4DB /* URLExts.swift */,
 				BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */,
@@ -228,6 +231,7 @@
 				BC3CCAD7288782F90079E4DB /* TopListViewModel.swift in Sources */,
 				BC3CCADE28878ADF0079E4DB /* UITableViewExts.swift in Sources */,
 				BC3CCAE82887CB100079E4DB /* URLExts.swift in Sources */,
+				BC3CCAEC2887E6540079E4DB /* ExtsUIImageView.swift in Sources */,
 				BC3CCAE428879AC40079E4DB /* TopListService.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,

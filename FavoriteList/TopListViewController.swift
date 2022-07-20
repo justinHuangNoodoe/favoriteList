@@ -15,42 +15,52 @@ class TopListViewController: UIViewController, Loadable {
     @IBOutlet weak var listTableView: UITableView!
     weak var delegate: TopListVCDelegate?
     
+    private var viewModel: TopListViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel = TopListViewModel(delegate: self)
+        viewModel?.getTopMangaList(type: .manga, filter: nil)
     }
     
     private func setupUI() {
         listTableView.register(ListItemTableViewCell.loadNib(), forCellReuseIdentifier: ListItemTableViewCell.identifier)
         listTableView.delegate = self
         listTableView.dataSource = self
-        
     }
 }
 
 extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Top Movies"
+        return viewModel?.topList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as ListItemTableViewCell
-        cell.titleLabel.text = "標題"
-        cell.rankLabel.text = "排名"
-        cell.startDateLabel.text = "開始時間"
-        cell.endDateLabel.text = "結束時間"
+        let item = viewModel?.topList[indexPath.row]
+        if let url = item?.images[TopListItemImageType.jpg.rawValue]?.image {
+            cell.coverImageView?.downloadImage(from: url)
+        }
+        cell.titleLabel.text = item?.title
+        cell.rankLabel.text = item?.rank?.description
+        cell.startDateLabel.text = item?.published?.from
+        cell.endDateLabel.text = item?.aired?.to
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension TopListViewController: TopListVMDelegate {
+    func updateTopMangaListSucess(_ list: [TopListItem]) {
+        listTableView.reloadData()
+    }
+    
+    func updateTopMangaListFailue(_ error: Error) {
         
     }
 }
