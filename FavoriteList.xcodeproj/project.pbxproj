@@ -28,6 +28,7 @@
 		BC79110E28891B3A00120AF7 /* LaodingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */; };
 		BC79111028891D5A00120AF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79110F28891D5A00120AF7 /* LoadingView.swift */; };
 		BC7911122889231D00120AF7 /* UIColorExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7911112889231D00120AF7 /* UIColorExts.swift */; };
+		BC791114288992A500120AF7 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC791113288992A500120AF7 /* UISegmentedControl.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -60,6 +61,7 @@
 		BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaodingProtocol.swift; sourceTree = "<group>"; };
 		BC79110F28891D5A00120AF7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BC7911112889231D00120AF7 /* UIColorExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExts.swift; sourceTree = "<group>"; };
+		BC791113288992A500120AF7 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */,
 				BCBB898B2887FD1B00B7397B /* StringExts.swift */,
 				BCBB898D2887FD5B00B7397B /* DateExts.swift */,
+				BC791113288992A500120AF7 /* UISegmentedControl.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
 				BC7911122889231D00120AF7 /* UIColorExts.swift in Sources */,
 				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,
+				BC791114288992A500120AF7 /* UISegmentedControl.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
