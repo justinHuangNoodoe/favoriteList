@@ -26,13 +26,7 @@ class TopListViewController: UIViewController, Loadable, LoadingProtocol {
         super.viewDidLoad()
         debounce = Debounce(interval: 0.5)
         setupUI()
-        showLoadingView()
-        viewModel.getTopList(page: 0)
-    }
-    
-    private func reset(injection: TopListInjection) {
-        viewModel.injection = injection
-        setupUI()
+        getTopList()
     }
     
     private func setupUI() {
@@ -48,56 +42,53 @@ class TopListViewController: UIViewController, Loadable, LoadingProtocol {
         ]
         
         typeSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        typeSegmentedControl.removeAllSegments()
-        TopListInjection.allCases.forEach { type in
-            typeSegmentedControl.insertSegment(withTitle: type.text, at: type.index, animated: false)
-        }
+        typeSegmentedControl.setSegments(TopListInjection.allCases, animated: false)
         
         searchTypeSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        searchTypeSegmentedControl.removeAllSegments()
-        viewModel.injection.searchTypeElements.forEach { type in
-            searchTypeSegmentedControl.insertSegment(withTitle: type.text, at: type.index, animated: false)
-        }
-        searchFilterSeqmentedControl.removeAllSegments()
+        searchTypeSegmentedControl.setSegments(viewModel.injection.searchTypeElements, animated: false)
+        
         searchFilterSeqmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        viewModel.injection.searchFilterElements.forEach { filter in
-            searchFilterSeqmentedControl.insertSegment(withTitle: filter.text, at: filter.index, animated: false)
-        }
+        searchFilterSeqmentedControl.setSegments(viewModel.injection.searchFilterElements, animated: false)
+        
         typeSegmentedControl.selectedSegmentIndex = viewModel.injection.index
-        searchTypeSegmentedControl.selectedSegmentIndex = -1
-        searchFilterSeqmentedControl.selectedSegmentIndex = -1
+        searchTypeSegmentedControl.selectedNonSegment()
+        searchFilterSeqmentedControl.selectedNonSegment()
     }
     
-    func showNoResult(_ shown: Bool) {
-        shown ?
+    private func showNoResultIfNeed() {
+        viewModel.shouldShownEmptyBackgroundView ?
             self.view.bringSubviewToFront(noResultView) :
             self.view.bringSubviewToFront(listTableView)
+    }
+    
+    private func getTopList() {
+        showLoadingView()
+        viewModel.getTopList()
     }
     
     @IBAction func typeSegmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         let injection = TopListInjection(rawValue: index) ?? .manga
+        viewModel.injection = injection
+        setupSegmentedControl()
         debounce?.execute { [weak self] in
-            self?.showLoadingView()
-            self?.reset(injection: injection)
+            self?.getTopList()
         }
     }
     
     @IBAction func searchTypeSegmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
+        viewModel.setSearchType(index)
         debounce?.execute { [weak self] in
-            self?.viewModel.setSearchType(index)
-            self?.showLoadingView()
-            self?.viewModel.reset()
+            self?.getTopList()
         }
     }
     
     @IBAction func searchFilterSeqmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
+        viewModel.setSearchFilter(index)
         debounce?.execute { [weak self] in
-            self?.viewModel.setSearchFilter(index)
-            self?.showLoadingView()
-            self?.viewModel.reset()
+            self?.getTopList()
         }
     }
 }
@@ -105,9 +96,7 @@ class TopListViewController: UIViewController, Loadable, LoadingProtocol {
 extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.topList.count
-        showNoResult(count == 0)
-        return count
+        return viewModel.topList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -131,20 +120,21 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let didScrollHeight = scrollView.contentOffset.y + scrollView.visibleSize.height
         if didScrollHeight > scrollView.contentSize.height, viewModel.hasNextPage {
-            let nextPage = viewModel.currentPage + 1
-            showLoadingView()
-            viewModel.getTopList(page: nextPage)
+            getTopList()
         }
     }
 }
 
 extension TopListViewController: TopListVMDelegate {
     func updateTopListSucess() {
-        self.hideLoadingView()
+        hideLoadingView()
+        showNoResultIfNeed()
         listTableView.reloadData()
     }
     
     func updateTopListFailue(_ error: Error) {
+        hideLoadingView()
+        showNoResultIfNeed()
         print(error)
     }
 }

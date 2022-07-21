@@ -22,8 +22,15 @@ class TopListViewModel {
     private(set) var searchType: Elementable?
     private(set) var searchFilter: Elementable?
     
+    var shouldShownEmptyBackgroundView: Bool {
+        return topList.isEmpty
+    }
+    
     var injection: TopListInjection {
-        didSet { reset() }
+        didSet {
+            clearFilter()
+            resetPageSetting()
+        }
     }
     
     init(injection: TopListInjection, delegate: TopListVMDelegate?) {
@@ -37,23 +44,30 @@ class TopListViewModel {
     
     func setSearchType(_ index: Int) {
         searchType = injection.searchType(index: index)
+        resetPageSetting()
     }
     
     func setSearchFilter(_ index: Int) {
         searchFilter = injection.searchFilter(index: index)
+        resetPageSetting()
     }
     
-    func reset() {
+    private func resetPageSetting() {
         topList = []
         currentPage = 0
         hasNextPage = false
-        getTopList(page: 0)
     }
     
-    func getTopList(page: Int) {
+    private func clearFilter() {
+        searchType = nil
+        searchFilter = nil
+    }
+    
+    func getTopList() {
         guard !isLoadingList else { return }
         isLoadingList = true
-        injection.serviceProvider(searchType, searchFilter, page, 20) { [weak self] result in
+        let page = hasNextPage ? currentPage + 1 : currentPage
+        injection.getTopList(searchType, searchFilter, page, 20) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.isLoadingList = false
@@ -92,7 +106,7 @@ enum TopListInjection: Int, CaseIterable, Elementable {
         return self.rawValue
     }
     
-    var serviceProvider: (Elementable?, Elementable?, Int, Int, @escaping GetTopListHandler) -> () {
+    var getTopList: (Elementable?, Elementable?, Int, Int, @escaping GetTopListHandler) -> () {
         switch self {
         case .manga:
             return TopListService.getTopMangaList
