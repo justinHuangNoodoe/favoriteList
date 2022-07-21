@@ -9,7 +9,8 @@ import UIKit
 
 protocol TopListVCDelegate: AnyObject {}
 
-class TopListViewController: UIViewController, Loadable {
+class TopListViewController: UIViewController, Loadable, LoadingProtocol {
+    var loadingView: LoadingView = LoadingView()
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var searchTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var searchFilterSeqmentedControl: UISegmentedControl!
@@ -25,6 +26,7 @@ class TopListViewController: UIViewController, Loadable {
         super.viewDidLoad()
         debounce = Debounce(interval: 0.5)
         setupUI()
+        showLoadingView()
         viewModel.getTopList(page: 0)
     }
     
@@ -76,6 +78,7 @@ class TopListViewController: UIViewController, Loadable {
         let index = sender.selectedSegmentIndex
         let injection = TopListInjection(rawValue: index) ?? .manga
         debounce?.execute { [weak self] in
+            self?.showLoadingView()
             self?.reset(injection: injection)
         }
     }
@@ -84,6 +87,7 @@ class TopListViewController: UIViewController, Loadable {
         let index = sender.selectedSegmentIndex
         debounce?.execute { [weak self] in
             self?.viewModel.setSearchType(index)
+            self?.showLoadingView()
             self?.viewModel.reset()
         }
     }
@@ -92,6 +96,7 @@ class TopListViewController: UIViewController, Loadable {
         let index = sender.selectedSegmentIndex
         debounce?.execute { [weak self] in
             self?.viewModel.setSearchFilter(index)
+            self?.showLoadingView()
             self?.viewModel.reset()
         }
     }
@@ -115,6 +120,7 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.rankLabel.text = item.rank?.description
         cell.startDateLabel.text = item.published?.from?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
         cell.endDateLabel.text = item.aired?.to?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
+        cell.delegate = self
         return cell
     }
     
@@ -126,6 +132,7 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
         let didScrollHeight = scrollView.contentOffset.y + scrollView.visibleSize.height
         if didScrollHeight > scrollView.contentSize.height, viewModel.hasNextPage {
             let nextPage = viewModel.currentPage + 1
+            showLoadingView()
             viewModel.getTopList(page: nextPage)
         }
     }
@@ -133,10 +140,17 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TopListViewController: TopListVMDelegate {
     func updateTopListSucess() {
+        self.hideLoadingView()
         listTableView.reloadData()
     }
     
     func updateTopListFailue(_ error: Error) {
         print(error)
+    }
+}
+
+extension TopListViewController: ListItemCellDelegate {
+    func didTappedFavoriteButton(cell: ListItemTableViewCell) {
+        
     }
 }

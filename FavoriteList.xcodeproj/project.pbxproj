@@ -25,6 +25,9 @@
 		BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */; };
 		BC3CCAEC2887E6540079E4DB /* ExtsUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CCAEB2887E6540079E4DB /* ExtsUIImageView.swift */; };
 		BC79110C2888E3C400120AF7 /* FavoriteItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79110B2888E3C400120AF7 /* FavoriteItemManager.swift */; };
+		BC79110E28891B3A00120AF7 /* LaodingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */; };
+		BC79111028891D5A00120AF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79110F28891D5A00120AF7 /* LoadingView.swift */; };
+		BC7911122889231D00120AF7 /* UIColorExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7911112889231D00120AF7 /* UIColorExts.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -54,6 +57,9 @@
 		BC3CCAE92887CB640079E4DB /* DictionaryExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExts.swift; sourceTree = "<group>"; };
 		BC3CCAEB2887E6540079E4DB /* ExtsUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtsUIImageView.swift; sourceTree = "<group>"; };
 		BC79110B2888E3C400120AF7 /* FavoriteItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItemManager.swift; sourceTree = "<group>"; };
+		BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaodingProtocol.swift; sourceTree = "<group>"; };
+		BC79110F28891D5A00120AF7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BC7911112889231D00120AF7 /* UIColorExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExts.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,9 @@
 				BC3CCAD12886EE2B0079E4DB /* Coordinator.swift */,
 				BC287FAF288837C1003DCA12 /* Debounce.swift */,
 				BC79110B2888E3C400120AF7 /* FavoriteItemManager.swift */,
+				BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */,
+				BC79110F28891D5A00120AF7 /* LoadingView.swift */,
+				BC7911112889231D00120AF7 /* UIColorExts.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -248,9 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3CCADA288786130079E4DB /* ListItemTableViewCell.swift in Sources */,
+				BC79110E28891B3A00120AF7 /* LaodingProtocol.swift in Sources */,
 				BC3CCAE62887C5450079E4DB /* RESTFulConstant.swift in Sources */,
 				BCBB898C2887FD1B00B7397B /* StringExts.swift in Sources */,
 				BC3CCAC92886D8200079E4DB /* AppCoordinator.swift in Sources */,
+				BC79111028891D5A00120AF7 /* LoadingView.swift in Sources */,
 				BC3CCAD02886EA350079E4DB /* MainCoordinator.swift in Sources */,
 				BCBB898E2887FD5B00B7397B /* DateExts.swift in Sources */,
 				BC79110C2888E3C400120AF7 /* FavoriteItemManager.swift in Sources */,
@@ -261,6 +272,7 @@
 				BC3CCAE428879AC40079E4DB /* TopListService.swift in Sources */,
 				BC287FB32888481F003DCA12 /* TopList.swift in Sources */,
 				BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */,
+				BC7911122889231D00120AF7 /* UIColorExts.swift in Sources */,
 				BC3CCAEA2887CB640079E4DB /* DictionaryExts.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */,
