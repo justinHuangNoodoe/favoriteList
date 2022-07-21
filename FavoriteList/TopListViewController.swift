@@ -18,19 +18,18 @@ class TopListViewController: UIViewController, Loadable {
     @IBOutlet weak var noResultView: UIView!
     weak var delegate: TopListVCDelegate?
     
-    private var viewModel: TopListViewModel?
+    private lazy var viewModel: TopListViewModel = TopListViewModel(injection: .manga, delegate: self)
     private var debounce: Debounce?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         debounce = Debounce(interval: 0.5)
-        viewModel = TopListViewModel(injection: .manga, delegate: self)
         setupUI()
-        viewModel?.getTopList(page: 0)
+        viewModel.getTopList(page: 0)
     }
     
     private func reset(injection: TopListInjection) {
-        viewModel?.injection = injection
+        viewModel.injection = injection
         setupUI()
     }
     
@@ -54,15 +53,15 @@ class TopListViewController: UIViewController, Loadable {
         
         searchTypeSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
         searchTypeSegmentedControl.removeAllSegments()
-        viewModel?.injection.searchTypeElements.forEach { type in
+        viewModel.injection.searchTypeElements.forEach { type in
             searchTypeSegmentedControl.insertSegment(withTitle: type.text, at: type.index, animated: false)
         }
         searchFilterSeqmentedControl.removeAllSegments()
         searchFilterSeqmentedControl.setTitleTextAttributes(attributes, for: .normal)
-        viewModel?.injection.searchFilterElements.forEach { filter in
+        viewModel.injection.searchFilterElements.forEach { filter in
             searchFilterSeqmentedControl.insertSegment(withTitle: filter.text, at: filter.index, animated: false)
         }
-        typeSegmentedControl.selectedSegmentIndex = viewModel?.injection.index ?? 0
+        typeSegmentedControl.selectedSegmentIndex = viewModel.injection.index
         searchTypeSegmentedControl.selectedSegmentIndex = -1
         searchFilterSeqmentedControl.selectedSegmentIndex = -1
     }
@@ -84,16 +83,16 @@ class TopListViewController: UIViewController, Loadable {
     @IBAction func searchTypeSegmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         debounce?.execute { [weak self] in
-            self?.viewModel?.setSearchType(index)
-            self?.viewModel?.reset()
+            self?.viewModel.setSearchType(index)
+            self?.viewModel.reset()
         }
     }
     
     @IBAction func searchFilterSeqmentedDidChanged(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         debounce?.execute { [weak self] in
-            self?.viewModel?.setSearchFilter(index)
-            self?.viewModel?.reset()
+            self?.viewModel.setSearchFilter(index)
+            self?.viewModel.reset()
         }
     }
 }
@@ -101,21 +100,21 @@ class TopListViewController: UIViewController, Loadable {
 extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel?.topList.count ?? 0
+        let count = viewModel.topList.count
         showNoResult(count == 0)
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as ListItemTableViewCell
-        let item = viewModel?.topList[indexPath.row]
-        if let url = item?.images[TopListItemImageType.jpg.rawValue]?.image {
+        let item = viewModel.topList[indexPath.row]
+        if let url = item.images[TopListItemImageType.jpg.rawValue]?.image {
             cell.coverImageView?.downloadImage(from: url)
         }
-        cell.titleLabel.text = item?.title
-        cell.rankLabel.text = item?.rank?.description
-        cell.startDateLabel.text = item?.published?.from?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
-        cell.endDateLabel.text = item?.aired?.to?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
+        cell.titleLabel.text = item.title
+        cell.rankLabel.text = item.rank?.description
+        cell.startDateLabel.text = item.published?.from?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
+        cell.endDateLabel.text = item.aired?.to?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
         return cell
     }
     
@@ -125,8 +124,9 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let didScrollHeight = scrollView.contentOffset.y + scrollView.visibleSize.height
-        if didScrollHeight > scrollView.contentSize.height {
-            viewModel?.getNexPageListIfNeed()
+        if didScrollHeight > scrollView.contentSize.height, viewModel.hasNextPage {
+            let nextPage = viewModel.currentPage + 1
+            viewModel.getTopList(page: nextPage)
         }
     }
 }

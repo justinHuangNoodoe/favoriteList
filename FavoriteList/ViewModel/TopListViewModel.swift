@@ -15,11 +15,10 @@ protocol TopListVMDelegate: AnyObject {
 class TopListViewModel {
     
     private weak var delegate: TopListVMDelegate?
-    private(set) var topList: [TopListItem]
     private var isLoadingList: Bool
-    private var currentPage: Int
-    private var hasNextPage: Bool
-    
+    private(set) var currentPage: Int
+    private(set) var hasNextPage: Bool
+    private(set) var topList: [TopListItem]
     private(set) var searchType: Elementable?
     private(set) var searchFilter: Elementable?
     
@@ -79,14 +78,6 @@ class TopListViewModel {
             }
         }
     }
-    
-    func getNexPageListIfNeed() {
-        if hasNextPage {
-            let nextPage = currentPage + 1
-            getTopList(page: nextPage)
-        }
-    }
-    
 }
 
 enum TopListInjection: Int, CaseIterable, Elementable {
