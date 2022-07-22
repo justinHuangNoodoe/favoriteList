@@ -30,6 +30,7 @@
 		BC7911122889231D00120AF7 /* UIColorExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7911112889231D00120AF7 /* UIColorExts.swift */; };
 		BC791114288992A500120AF7 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC791113288992A500120AF7 /* UISegmentedControl.swift */; };
 		BCB97DCC288A1F8D005B39E3 /* TLFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB97DCB288A1F8D005B39E3 /* TLFileManager.swift */; };
+		BCB97DCE288A2E6A005B39E3 /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB97DCD288A2E6A005B39E3 /* ThreadSafe.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -64,6 +65,7 @@
 		BC7911112889231D00120AF7 /* UIColorExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExts.swift; sourceTree = "<group>"; };
 		BC791113288992A500120AF7 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		BCB97DCB288A1F8D005B39E3 /* TLFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLFileManager.swift; sourceTree = "<group>"; };
+		BCB97DCD288A2E6A005B39E3 /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				BC79110D28891B3A00120AF7 /* LaodingProtocol.swift */,
 				BC79110F28891D5A00120AF7 /* LoadingView.swift */,
 				BC7911112889231D00120AF7 /* UIColorExts.swift */,
+				BCB97DCD288A2E6A005B39E3 /* ThreadSafe.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */,
 				BC3CCAE2288799FF0079E4DB /* RESTfulService.swift in Sources */,
 				BC3CCACE2886DC0D0079E4DB /* Loadable.swift in Sources */,
+				BCB97DCE288A2E6A005B39E3 /* ThreadSafe.swift in Sources */,
 				BC3CCAD22886EE2B0079E4DB /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
