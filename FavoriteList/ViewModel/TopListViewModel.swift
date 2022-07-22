@@ -40,6 +40,7 @@ class TopListViewModel {
         currentPage = 0
         isLoadingList = false
         hasNextPage = false
+        FavoriteItemManager.shared.favoriteItems.removeAll()
     }
     
     func setSearchType(_ index: Int) {
@@ -91,6 +92,11 @@ class TopListViewModel {
                 }
             }
         }
+    }
+    
+    func saveFavoritItems(_ index: Int) -> Bool {
+        let item = topList[index]
+        return FavoriteItemManager.shared.favoriteItems.insert(item).inserted
     }
 }
 

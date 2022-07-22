@@ -23,8 +23,11 @@ struct TopListPagination: Codable {
     let currentPage: Int?
 }
 
-struct TopListItem: Codable {
+struct TopListItem: Codable, Hashable {
+    
     enum CodingKeys: String, CodingKey {
+        case id = "mal_id"
+        case url
         case images
         case title
         case rank
@@ -33,7 +36,9 @@ struct TopListItem: Codable {
         case aired
     }
     
-    let images: [String: TopListItemImage]
+    let id: Int
+    let url: String?
+    let images: [String: TopListItemImage]?
     let title: String?
     let rank: Int?
     let type: String?
@@ -43,6 +48,14 @@ struct TopListItem: Codable {
     
     // Only used in top anime
     let aired: FromAndToTime?
+    
+    static func == (lhs: TopListItem, rhs: TopListItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
 }
 
 

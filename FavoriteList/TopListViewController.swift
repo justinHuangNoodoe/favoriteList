@@ -141,6 +141,8 @@ extension TopListViewController: TopListVMDelegate {
 
 extension TopListViewController: ListItemCellDelegate {
     func didTappedFavoriteButton(cell: ListItemTableViewCell) {
-        
+        if let index = listTableView.indexPath(for: cell) {
+            viewModel.saveFavoritItems(index.row)
+        }
     }
 }
