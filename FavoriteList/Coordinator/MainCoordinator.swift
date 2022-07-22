@@ -34,8 +34,20 @@ class MainCoordinator: FLCoordinator {
     func start() {
         let topListVC = TopListViewController.loadFromStoryBoard(name: .main)
         topListVC.tabBarItem = TabbarItem.top.item
+        topListVC.delegate = self
         let favoriteListVC = FavoriteListsViewController.loadFromStoryBoard(name: .main)
         favoriteListVC.tabBarItem = TabbarItem.favorite.item
+        favoriteListVC.delegate = self
         rootViewController.setViewControllers([topListVC, favoriteListVC], animated: true)
+    }
+}
+
+extension MainCoordinator: TopListVCDelegate, FavoriteListVCDelegate {
+    func openWebPage(url: String) {
+        if
+            let webUrl = URL(string: url),
+            UIApplication.shared.canOpenURL(webUrl) {
+            UIApplication.shared.open(webUrl)
+        }
     }
 }

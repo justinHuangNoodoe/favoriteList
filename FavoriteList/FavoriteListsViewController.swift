@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol FavoriteListsVCDelegate: AnyObject {}
+protocol FavoriteListVCDelegate: AnyObject {
+    func openWebPage(url: String)
+}
 
 class FavoriteListsViewController: UIViewController, Loadable {
     @IBOutlet weak var emptyBackgroundView: UIView!
@@ -56,6 +58,13 @@ extension FavoriteListsViewController: UITableViewDelegate, UITableViewDataSourc
         cell.favoriteButton.isSelected = true
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.topList[indexPath.row]
+        guard let url = item.url else { return }
+        delegate?.openWebPage(url: url)
+        listTableView.deselectRow(at: indexPath, animated: false)
     }
 }
 

@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol TopListVCDelegate: AnyObject {}
+protocol TopListVCDelegate: AnyObject {
+    func openWebPage(url: String)
+}
 
 class TopListViewController: UIViewController, Loadable, LoadingProtocol {
     var loadingView: LoadingView = LoadingView()
@@ -120,7 +122,10 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let item = viewModel.topList[indexPath.row]
+        guard let url = item.url else { return }
+        delegate?.openWebPage(url: url)
+        listTableView.deselectRow(at: indexPath, animated: false)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
