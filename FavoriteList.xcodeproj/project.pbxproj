@@ -31,6 +31,7 @@
 		BC791114288992A500120AF7 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC791113288992A500120AF7 /* UISegmentedControl.swift */; };
 		BCB97DCC288A1F8D005B39E3 /* TLFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB97DCB288A1F8D005B39E3 /* TLFileManager.swift */; };
 		BCB97DCE288A2E6A005B39E3 /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB97DCD288A2E6A005B39E3 /* ThreadSafe.swift */; };
+		BCB97DD0288A32F2005B39E3 /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB97DCF288A32F2005B39E3 /* FavoriteListViewModel.swift */; };
 		BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985862886D58F000AE76A /* AppDelegate.swift */; };
 		BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB985882886D58F000AE76A /* SceneDelegate.swift */; };
 		BCB9858B2886D58F000AE76A /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9858A2886D58F000AE76A /* TopListViewController.swift */; };
@@ -66,6 +67,7 @@
 		BC791113288992A500120AF7 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		BCB97DCB288A1F8D005B39E3 /* TLFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLFileManager.swift; sourceTree = "<group>"; };
 		BCB97DCD288A2E6A005B39E3 /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
+		BCB97DCF288A32F2005B39E3 /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		BCB985832886D58F000AE76A /* FavoriteList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB985862886D58F000AE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCB985882886D58F000AE76A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3CCAD6288782F90079E4DB /* TopListViewModel.swift */,
+				BCB97DCF288A32F2005B39E3 /* FavoriteListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				BC791114288992A500120AF7 /* UISegmentedControl.swift in Sources */,
 				BCB985872886D58F000AE76A /* AppDelegate.swift in Sources */,
 				BC287FB0288837C1003DCA12 /* Debounce.swift in Sources */,
+				BCB97DD0288A32F2005B39E3 /* FavoriteListViewModel.swift in Sources */,
 				BCB985892886D58F000AE76A /* SceneDelegate.swift in Sources */,
 				BC3CCAD4288706DA0079E4DB /* FavoriteListsViewController.swift in Sources */,
 				BC3CCAE2288799FF0079E4DB /* RESTfulService.swift in Sources */,
