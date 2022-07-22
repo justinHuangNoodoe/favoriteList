@@ -8,19 +8,23 @@
 import Foundation
 
 protocol TopListVMDelegate: AnyObject {
+    func updateFavoriteItemsFinished()
     func updateTopListSucess()
     func updateTopListFailue(_ error: Error)
 }
+
+typealias FavoriteItemId = Int
 
 class TopListViewModel {
     
     private weak var delegate: TopListVMDelegate?
     private var isLoadingList: Bool
-    private(set) var currentPage: Int
+    private var favoriteIds: [FavoriteItemId]
+    private var currentPage: Int
+    private var searchType: Elementable?
+    private var searchFilter: Elementable?
     private(set) var hasNextPage: Bool
     private(set) var topList: [TopListItem]
-    private(set) var searchType: Elementable?
-    private(set) var searchFilter: Elementable?
     
     var shouldShownEmptyBackgroundView: Bool {
         return topList.isEmpty
@@ -40,7 +44,7 @@ class TopListViewModel {
         currentPage = 0
         isLoadingList = false
         hasNextPage = false
-        FavoriteItemManager.shared.favoriteItems.removeAll()
+        favoriteIds = []
     }
     
     func setSearchType(_ index: Int) {
@@ -51,6 +55,10 @@ class TopListViewModel {
     func setSearchFilter(_ index: Int) {
         searchFilter = injection.searchFilter(index: index)
         resetPageSetting()
+    }
+    
+    func isFavorite(_ id: Int) -> Bool {
+        return favoriteIds.contains(id)
     }
     
     private func resetPageSetting() {
@@ -94,9 +102,19 @@ class TopListViewModel {
         }
     }
     
-    func saveFavoritItems(_ index: Int) -> Bool {
+    func getFavoriteIds() {
+        favoriteIds = FavoriteItemManager.shared.favoriteItems.map { $0.id }
+        delegate?.updateFavoriteItemsFinished()
+    }
+    
+    func updateFavoritItems(_ index: Int, isFavorite: Bool) {
         let item = topList[index]
-        return FavoriteItemManager.shared.favoriteItems.insert(item).inserted
+        if isFavorite {
+            FavoriteItemManager.shared.favoriteItems.insert(item)
+        } else {
+            FavoriteItemManager.shared.favoriteItems.remove(item)
+        }
+        favoriteIds = FavoriteItemManager.shared.favoriteItems.map{ $0.id }
     }
 }
 

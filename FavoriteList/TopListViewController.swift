@@ -29,6 +29,11 @@ class TopListViewController: UIViewController, Loadable, LoadingProtocol {
         getTopList()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getFavoriteIds()
+    }
+    
     private func setupUI() {
         listTableView.register(ListItemTableViewCell.loadNib(), forCellReuseIdentifier: ListItemTableViewCell.identifier)
         listTableView.delegate = self
@@ -102,13 +107,14 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as ListItemTableViewCell
         let item = viewModel.topList[indexPath.row]
-        if let url = item.images[TopListItemImageType.jpg.rawValue]?.image {
-            cell.coverImageView?.downloadImage(from: url)
+        if let imageUrl = item.images?[TopListItemImageType.jpg.rawValue]?.image {
+            cell.coverImageView?.downloadImage(from: imageUrl)
         }
         cell.titleLabel.text = item.title
         cell.rankLabel.text = item.rank?.description
         cell.startDateLabel.text = item.published?.from?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
         cell.endDateLabel.text = item.aired?.to?.date(.yyyyMMddTHHmmssZ)?.dateFormat(.yyyyMd)
+        cell.favoriteButton.isSelected = viewModel.isFavorite(item.id)
         cell.delegate = self
         return cell
     }
@@ -126,6 +132,10 @@ extension TopListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension TopListViewController: TopListVMDelegate {
+    func updateFavoriteItemsFinished() {
+        listTableView.reloadData()
+    }
+    
     func updateTopListSucess() {
         hideLoadingView()
         showNoResultIfNeed()
@@ -141,8 +151,8 @@ extension TopListViewController: TopListVMDelegate {
 
 extension TopListViewController: ListItemCellDelegate {
     func didTappedFavoriteButton(cell: ListItemTableViewCell) {
-        if let index = listTableView.indexPath(for: cell) {
-            viewModel.saveFavoritItems(index.row)
-        }
+        guard let index = listTableView.indexPath(for: cell) else { return }
+        viewModel.updateFavoritItems(index.row, isFavorite: cell.favoriteButton.isSelected)
+        listTableView.reloadRows(at: [index], with: .none)
     }
 }

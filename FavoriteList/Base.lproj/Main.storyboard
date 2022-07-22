@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="height" constant="75" id="yLz-ia-8vz"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sz3-aR-REs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sz3-aR-REs" userLabel="noResultView">
                                 <rect key="frame" x="0.0" y="123" width="414" height="739"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No result, please try again." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1C-ZB-o9V">
@@ -123,9 +123,45 @@
                     <view key="view" contentMode="scaleToFill" id="7ru-Bd-sYP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rq-CV-BcB" userLabel="noResultView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No result, please go to add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HB0-nO-oFW">
+                                        <rect key="frame" x="105" y="276" width="204.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HB0-nO-oFW" firstAttribute="centerY" secondItem="1Rq-CV-BcB" secondAttribute="centerY" multiplier="0.7" id="T50-C9-C3Y"/>
+                                    <constraint firstItem="HB0-nO-oFW" firstAttribute="centerX" secondItem="1Rq-CV-BcB" secondAttribute="centerX" id="djh-ts-GSU"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yYx-Hu-RUS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" name="light_grey_Color"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b5d-Tj-1qY"/>
                         <color key="backgroundColor" name="bgColor"/>
+                        <constraints>
+                            <constraint firstItem="b5d-Tj-1qY" firstAttribute="bottom" secondItem="1Rq-CV-BcB" secondAttribute="bottom" id="EEe-qq-VCk"/>
+                            <constraint firstItem="1Rq-CV-BcB" firstAttribute="leading" secondItem="b5d-Tj-1qY" secondAttribute="leading" id="GOS-MO-vpo"/>
+                            <constraint firstItem="b5d-Tj-1qY" firstAttribute="trailing" secondItem="yYx-Hu-RUS" secondAttribute="trailing" id="P4u-Jr-AOi"/>
+                            <constraint firstItem="yYx-Hu-RUS" firstAttribute="top" secondItem="b5d-Tj-1qY" secondAttribute="top" id="U1E-Ml-UEg"/>
+                            <constraint firstItem="b5d-Tj-1qY" firstAttribute="bottom" secondItem="yYx-Hu-RUS" secondAttribute="bottom" id="d3X-F5-yxA"/>
+                            <constraint firstItem="1Rq-CV-BcB" firstAttribute="top" secondItem="b5d-Tj-1qY" secondAttribute="top" id="d4p-Gh-oP8"/>
+                            <constraint firstItem="yYx-Hu-RUS" firstAttribute="leading" secondItem="b5d-Tj-1qY" secondAttribute="leading" id="tB2-hp-SSz"/>
+                            <constraint firstItem="1Rq-CV-BcB" firstAttribute="trailing" secondItem="b5d-Tj-1qY" secondAttribute="trailing" id="wnj-4q-T0J"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emptyBackgroundView" destination="1Rq-CV-BcB" id="0QY-Zl-k4K"/>
+                        <outlet property="listTableView" destination="yYx-Hu-RUS" id="wHS-o9-es1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="noQ-cc-isV" sceneMemberID="firstResponder"/>
             </objects>
